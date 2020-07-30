@@ -26,7 +26,7 @@ new Vue({
             id:'',
         },
         pagination: {},
-        isNew:'true',
+        isNew: false,
     },
     /**
      * 生命週期created
