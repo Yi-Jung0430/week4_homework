@@ -17,7 +17,6 @@ export default{
                     <input :id="'img' + i" v-model="tempProduct.imageUrl[i - 1]" type="text" class="form-control"
                       placeholder="請輸入圖片連結">
                     </div>
-                    <img class="img-fluid" :src="tempProduct.imageUrl">
                     
                     <!--上傳檔案-->
                     <div class="form-group">
@@ -26,14 +25,14 @@ export default{
                       </label>
                       <input id="customFile" ref="file" type="file" class="form-control" @change="uploadFile">
                     </div>
-                    
+                    <img class="img-fluid" :src="tempProduct.imageUrl[0]">
                   </div>
                   <div class="col-sm-8">
                     <div class="form-group">
                       <label for="title">標題</label>
                       <input id="title" v-model="tempProduct.title" type="text" class="form-control" placeholder="請輸入標題">
                     </div>
-
+                    
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="category">分類</label>
@@ -41,7 +40,7 @@ export default{
                           placeholder="請輸入分類" >
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="price">單位</label>
+                        <label for="unit">單位</label>
                         <input id="unit" v-model="tempProduct.unit" type="unit" class="form-control"
                           placeholder="請輸入單位">
                       </div>
@@ -69,15 +68,14 @@ export default{
                     </div>
                     <div class="form-group">
                       <label for="content">說明內容</label>
-                      <textarea id="description" v-model="tempProduct.content" type="text" class="form-control"
+                      <textarea id="content" v-model="tempProduct.content" type="text" class="form-control"
                         placeholder="請輸入說明內容" >
                       </textarea>
                     </div>
                     <div class="form-group">
                       <div class="form-check">
-                        <input id="is_enabled" v-model="tempProduct.is_enabled" class="form-check-input" type="checkbox"
-                          :true-value="1" :false-value="0">
-                        <label class="form-check-label" for="is_enabled">是否啟用</label>
+                        <input id="enabled" v-model="tempProduct.enabled" class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="enabled">是否啟用</label>
                       </div>
                     </div>
                   </div>
@@ -93,18 +91,14 @@ export default{
               </div>
             </div>
           </div>`,
-    data() {
-      return {
-        tempProduct: {
-          imageUrl: [],
-        },
-      };
-    },
-    props: {
-      productid: '',
-      isNew: true,
-      user: {},
-    },
+    // data() {
+    //   return {
+    //     tempProduct: {
+    //       imageUrl: [],
+    //     },
+    //   };
+    // },
+    props: ['isNew', 'user','tempProduct'],
     methods:{
       getProduct(id) {
         const api = `https://course-ec-api.hexschool.io/api/${this.user.uuid}/admin/ec/product/${id}`;

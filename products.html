@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item,index) in products" :key:="index">
+                    <tr v-for="(item,index) in products" :key="index">
                         <td>{{ item.category }}</td>
                         <td>{{ item.title }}</td>
                         <td class="text-right">{{ item.origin_price }}</td>
@@ -64,7 +64,7 @@
         <!--編輯和新增的model-->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
-            <modal :temp-product="tempProduct" :user="user" @update="getProducts"></modal>
+            <modal :temp-product="tempProduct" :user="user" :is-new="isNew" @update="getProducts"></modal>
         </div>
     
         <!--刪除model-->

@@ -26,7 +26,8 @@ new Vue({
             id:'',
         },
         pagination: {},
-        isNew: false,
+        isNew: true,
+        
     },
     /**
      * 生命週期created
@@ -40,7 +41,7 @@ new Vue({
         axios.defaults.headers.common.Authorization = `Bearer ${this.user.token}`;
         //若無法取得token則返回Login頁面
         if (this.user.token === ''){
-            //window.location = 'login.html';
+            window.location = 'login.html';
         }
         //執行取得全部產品的方法
         this.getProducts();

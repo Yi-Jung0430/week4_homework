@@ -8,7 +8,7 @@ export default{
                 </button>
             </div>
             <div class="modal-body">
-                <h5>是否刪除此商品： <strong></strong></h5>
+                <h5>是否刪除此商品： <strong>{{ tempProduct.title }}</strong></h5>
                 <span class="text-danger">注意！刪除後將無法復原</span>
             </div>
             <div class="modal-footer">
